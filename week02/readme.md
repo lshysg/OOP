@@ -38,35 +38,6 @@
 
 ```python
 # Создание объекта автобуса
-class Bus:
-    def __init__(self, speed, capacity, maxSpeed):
-        self.speed = speed
-        self.capacity = capacity
-        self.maxSpeed = maxSpeed
-        self.passengers = []
-        self.seats = {}
-
-    def __iadd__(self, passenger):
-        if isinstance(passenger, list):
-            self.passengers.extend(passenger)
-        else:
-            self.passengers.append(passenger)
-        return self
-
-    def __isub__(self, passenger):
-        if passenger in self.passengers:
-            self.passengers.remove(passenger)
-        return self
-
-    def __contains__(self, passenger):
-        return passenger in self.passengers
-
-    def increase_speed(self, value):
-        self.speed = min(self.speed + value, self.maxSpeed)
-
-    def decrease_speed(self, value):
-        self.speed = max(self.speed - value, 0)
-
 # Пример использования
 bus = Bus(speed=60, capacity=50, maxSpeed=100)
 
