@@ -1,3 +1,6 @@
+from typing import List
+from deposit import TimeDeposit
+
 if __name__ == "__main__":
     print("Добро пожаловать в систему подбора вкладов!")
 
@@ -5,17 +8,17 @@ if __name__ == "__main__":
         print("\n-----")
         print("Нажмите 1, чтобы подобрать вклад, или что угодно для выхода.")
 
-        answer = input()
+        answer: str = input()
         if answer == "1":
-            initial_sum = float(input("1/2: Введите начальную сумму вклада: "))
-            period = int(input("2/2: Введите срок вклада (мес.): "))
+            initial_sum: float = float(input("1/2: Введите начальную сумму вклада: "))
+            period: int = int(input("2/2: Введите срок вклада (мес.): "))
 
-            matched_deposits = []
+            matched_deposits: List[TimeDeposit] = []
             for deposit in deposits:
                 try:
                     deposit._check_user_params(initial_sum, period)
                     matched_deposits.append(deposit)
-                except AssertionError as err:
+                except AssertionError:
                     pass
 
             if len(matched_deposits) > 0:
