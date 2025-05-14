@@ -1,0 +1,13 @@
+Command-line parameters are 
+passed to a program at runt-time by the operating system when the program is requested by
+ another program, such as a command interpreter ("shell") like cmd.exe on Windows or bash 
+on Linux and OS X. The user types a command and the shell calls the operating system to run 
+the program. Exactly how this is done is beyond the scope of this article (on Windows, look up 
+CreateProcess; on UNIX and UNIX-like systems look up fork(3) and exec(3) in the manual).
+
+The uses for command-line parameters are various, but the main two are:
+Modifying program behaviour - command-line parameters can be used to tell a program how you
+ expect it to behave; for example, some programs have a -q (quiet) option to tell them not to output 
+as much text.
+Having a program run without user interaction - this is especially useful for programs that are 
+called from scripts or other programs.
